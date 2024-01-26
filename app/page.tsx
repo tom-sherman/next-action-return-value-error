@@ -17,24 +17,6 @@ export default function Home() {
       <ClientForm action={action} />
       <ClientFormWithState action={action} />
       <OnClick action={action} />
-      <BoundAction />
-    </>
-  );
-}
-
-async function plainAction() {
-  "use server";
-}
-
-function BoundAction() {
-  const bound = plainAction.bind(null, new Foo());
-
-  return (
-    <>
-      <p>With bound action:</p>
-      <ClientForm action={bound} />
-      <ClientFormWithState action={bound} />
-      <OnClick action={bound} />
     </>
   );
 }
