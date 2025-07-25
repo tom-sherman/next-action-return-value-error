@@ -1,5 +1,6 @@
 "use client";
-import { useFormState } from "react-dom";
+
+import { useActionState } from "react";
 
 type Props = {
   action: (d: FormData) => Promise<unknown>;
@@ -14,7 +15,7 @@ export function ClientForm({ action }: Props) {
 }
 
 export function ClientFormWithState({ action }: Props) {
-  const [state, wrapped] = useFormState(action, undefined);
+  const [state, wrapped] = useActionState(action, undefined);
   return (
     <form action={wrapped}>
       <button>Client form with state</button>
